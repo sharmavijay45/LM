@@ -77,7 +77,7 @@ def ingest():
         return
 
     for instance in INSTANCE_NAMES:
-        collection = f"{instance.strip()}_{QDRANT_COLLECTION}"
+        collection = instance.strip()
         ensure_collection(collection)
 
         vectors = embedder.encode([d["text"] for d in docs], show_progress_bar=True)

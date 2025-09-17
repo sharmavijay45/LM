@@ -52,7 +52,7 @@ def retrieve_from_kb(query: str) -> List[Dict]:
     try:
         query_vector = embedder.encode(query).tolist()
         for collection in collections:
-            collection_name = f"{collection.strip()}_vedas_knowledge_base"
+            collection_name = collection.strip()
             if not client.collection_exists(collection_name):
                 logger.warning(f"⚠️ Collection {collection_name} does not exist on {qdrant_url}")
                 continue
